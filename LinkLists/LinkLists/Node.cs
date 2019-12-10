@@ -42,5 +42,18 @@ namespace LinkLists
                 currentNode = currentNode.next;
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            if (!(obj is Node otherNode))
+                return false;
+            if (data == otherNode.data && next == null && otherNode.next == null)
+                return true;
+            if (data == otherNode.data && next.Equals(otherNode))
+                return true;
+            return false;
+        }
     }
 }
