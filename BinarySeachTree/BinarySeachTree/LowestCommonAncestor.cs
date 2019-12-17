@@ -2,6 +2,7 @@
 {
     /*
      * https://www.youtube.com/watch?v=kulWKd3BUcI
+     * https://practice.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-bst/1
      * Exp - For each node starting from the Root check if the 2 nodes are on either side of the current node. If so then return the current node, else go to the RST or LST based on if the nodes are smaller or larger
      */
     public class LowestCommonAncestor
