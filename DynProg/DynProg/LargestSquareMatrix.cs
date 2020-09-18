@@ -2,6 +2,9 @@
 
 namespace DynProg
 {
+    /// <summary>
+    /// Largest square of 1s in a 0/1 matrix
+    /// </summary>
     public static class LargestSquareMatrix
     {
         public static int GetLargestSquareMatrix(int[,] matrix)
