@@ -6,7 +6,9 @@ namespace DynProg
     {
         static void Main(string[] args)
         {
-            LargestSquareMatrix.Test();
+            // LargestSquareMatrix.Test();
+
+            Fibonacci.Test();
             Console.ReadKey();
         }
     }
