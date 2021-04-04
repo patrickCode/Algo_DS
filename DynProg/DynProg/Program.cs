@@ -8,7 +8,8 @@ namespace DynProg
         {
             // LargestSquareMatrix.Test();
             // Fibonacci.Test();
-            GridTraveller.Test();
+            // GridTraveller.Test();
+            ArrSum.Test();
             Console.ReadKey();
         }
     }
