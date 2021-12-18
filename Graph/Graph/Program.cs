@@ -7,7 +7,8 @@ namespace Graph
         static void Main(string[] args)
         {
             //DFSTraversal.Run(useRecursion: true);
-            BFSTraversal.Run();
+            // BFSTraversal.Run();
+            Path.Run();
         }
     }
 }
