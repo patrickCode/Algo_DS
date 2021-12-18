@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Graph
 {
-    public class DFSTraversal
+    internal class DFSTraversal
     {
         public static void Run(bool useRecursion = false)
         {
