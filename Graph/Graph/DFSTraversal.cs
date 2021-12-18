@@ -6,7 +6,7 @@ namespace Graph
 {
     public class DFSTraversal
     {
-        public static void Run()
+        public static void Run(bool useRecursion = false)
         {
             var graph = new Dictionary<int, List<int>>()
             {
@@ -20,7 +20,10 @@ namespace Graph
 
             int source = 1;
 
-            Traverse(graph, source);
+            if (useRecursion)
+                TraverseRecurse(graph, source);
+            else
+                Traverse(graph, source);
         }
 
         private static void Traverse(Dictionary<int, List<int>> graph, int startingNode)
@@ -37,6 +40,16 @@ namespace Graph
                 {
                     nodes.Push(neighbour);
                 }
+            }
+        }
+
+        private static void TraverseRecurse(Dictionary<int, List<int>> graph, int startingNode)
+        {
+            Console.WriteLine(startingNode);
+            List<int> neighbours = graph[startingNode];
+            foreach (int neighbour in neighbours)
+            {
+                TraverseRecurse(graph, neighbour);
             }
         }
     }

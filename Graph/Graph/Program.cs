@@ -6,7 +6,7 @@ namespace Graph
     {
         static void Main(string[] args)
         {
-            DFSTraversal.Run();
+            DFSTraversal.Run(useRecursion: true);
         }
     }
 }
