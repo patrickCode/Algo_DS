@@ -1,0 +1,36 @@
+﻿For n,m combinations
+	Recursion
+		Time Complexity - O(2 ^ (n+m))
+		Space Complexity - O(n+m)
+	DP
+		Time Complexity - O(n * m)
+		Space Complexity - O(n * m)
+
+Memoization Technique
+	Base Case - Smallest version of the problem
+	Create the backtracking tree - brute force
+	Implement using recursion
+	Add a memo object
+	The parameters which are changing needs to be memorized - Check the memo object before processing
+	If value is missing in memo, process the value and add it in the memo object
+
+
+Problem Guidelines
+1. Fibonacci
+2. Grid Traveller
+3. CanSum (ArrSum)
+	Write a function that takes an array (n elements) and a target sum (m), check if you can achieve the target sum by taking numbers from the array as many times as needed
+	Recursion
+		Time - O(n ^ m)
+		Space - O (n * m)
+	DP
+		Time - O(n * m)
+		Space - O(m)
+4. Best Sun
+	Best path to add a sum by taking numbers from an array
+	Recursion
+		Time - O(n^m * m)
+		Space - O(m * m)
+
+Course Reference
+https://www.youtube.com/watch?v=oBt53YbR9Kk

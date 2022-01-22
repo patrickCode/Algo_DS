@@ -10,6 +10,7 @@ namespace DynProg
             // Fibonacci.Test();
             // GridTraveller.Test();
             ArrSum.Test();
+            // Knapsack.Test();
             Console.ReadKey();
         }
     }
