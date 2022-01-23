@@ -1,0 +1,11 @@
+﻿Problems
+1. DFS
+2. BFS
+3. HasPath
+	Time: O(e) or O(n^2) - Since a graph with e edges can have max n^2 nodes
+	Space: O(n) - Since we need to store n nodes in the data structure (stack or queue)
+4. Undirected graph - Cycle
+	Since no directions are specificed in an undirected graph, there can cycles in the graph. So when we are traversinga undirected graph we need to ensure that we handle the 
+	scenarios of keeping a track of all the visited nodes so that we can avoid cycles.
+	In an undirected graph, generally a edge list is given, that needs to be converted into an adjacency list (for better traversal)
+5. Connected components count

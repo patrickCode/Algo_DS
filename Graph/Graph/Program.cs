@@ -8,7 +8,9 @@ namespace Graph
         {
             //DFSTraversal.Run(useRecursion: true);
             // BFSTraversal.Run();
-            Path.Run();
+            //Path.Run();
+            // UndirectedHasPath.Test();
+            ConnectedComponents.Test();
         }
     }
 }
