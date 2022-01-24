@@ -10,3 +10,6 @@
 	In an undirected graph, generally a edge list is given, that needs to be converted into an adjacency list (for better traversal)
 5. Connected components count
 6. Largest component count
+
+Resources
+https://www.youtube.com/watch?v=tWVWeAqZ0WU

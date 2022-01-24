@@ -9,8 +9,9 @@ namespace DynProg
             // LargestSquareMatrix.Test();
             // Fibonacci.Test();
             // GridTraveller.Test();
-            ArrSum.Test();
+            // ArrSum.Test();
             // Knapsack.Test();
+            StringDP.Test();
             Console.ReadKey();
         }
     }
