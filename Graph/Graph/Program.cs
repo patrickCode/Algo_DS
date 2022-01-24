@@ -10,7 +10,8 @@ namespace Graph
             // BFSTraversal.Run();
             //Path.Run();
             // UndirectedHasPath.Test();
-            ConnectedComponents.Test();
+            // ConnectedComponents.Test();
+            ShortestPath.Test();
         }
     }
 }

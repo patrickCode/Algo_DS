@@ -38,7 +38,7 @@ namespace Graph
             return false;
         }
 
-        private static Dictionary<char, List<char>> BuildGraph(List<KeyValuePair<char, char>> edges)
+        public static Dictionary<char, List<char>> BuildGraph(List<KeyValuePair<char, char>> edges)
         {
             Dictionary<char, List<char>> graph = new();
             foreach(KeyValuePair<char, char> edge in edges)

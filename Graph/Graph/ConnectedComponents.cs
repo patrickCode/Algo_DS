@@ -21,19 +21,38 @@ namespace Graph
             return connectedComponents;
         }
 
-        private static void DFS(Dictionary<int, List<int>> graph, int startNode, HashSet<int> visited)
+        public static int GetLargestConnectedComponentSize(Dictionary<int, List<int>> graph)
+        {
+            HashSet<int> visited = new();
+            int largestComponent = 0;
+            foreach (int node in graph.Keys)
+            {
+                if (visited.Contains(node))
+                    continue;
+
+                int componentSize = DFS(graph, node, visited);
+                if (componentSize > largestComponent)
+                    largestComponent = componentSize;
+            }
+            return largestComponent;
+        }
+
+        private static int DFS(Dictionary<int, List<int>> graph, int startNode, HashSet<int> visited)
         {
             if (!graph.ContainsKey(startNode))
-                return;
+                return 0;
 
             Stack<int> nodeStack = new();
             nodeStack.Push(startNode);
+            int graphSize = 0;
 
             while (nodeStack.Any())
             {
                 int currentNode = nodeStack.Pop();
                 if (visited.Contains(currentNode))
                     continue;
+                
+                graphSize++;
                 List<int> neighbours = graph[currentNode];
                 foreach (int neighbor in neighbours)
                 {
@@ -41,6 +60,7 @@ namespace Graph
                 }
                 visited.Add(currentNode);
             }
+            return graphSize;
         }
 
         public static void Test()
@@ -78,7 +98,8 @@ namespace Graph
             };
 
             int connectedComponents = GetConnectedComponents(graph);
-            Console.WriteLine($"There are {connectedComponents} connected components");
+            int largestComponent = GetLargestConnectedComponentSize(graph);
+            Console.WriteLine($"There are {connectedComponents} connected components and the largest component is {largestComponent}");
         }
     }
 }

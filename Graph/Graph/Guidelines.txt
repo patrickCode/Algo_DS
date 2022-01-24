@@ -9,3 +9,4 @@
 	scenarios of keeping a track of all the visited nodes so that we can avoid cycles.
 	In an undirected graph, generally a edge list is given, that needs to be converted into an adjacency list (for better traversal)
 5. Connected components count
+6. Largest component count
