@@ -68,5 +68,40 @@
             }
             return true;
         }
+
+        public IEnumerable<string> Autocomplete(string prefix)
+        {
+            TrieNode tempNode = _root;
+            foreach (char c in prefix)
+            {
+                TrieNode nextNode = tempNode.Children.FirstOrDefault(child => child.Key == c).Value;
+                if (nextNode != null)
+                {
+                    tempNode = nextNode;
+                    continue;
+                }
+                return new List<string>();
+            }
+            List<string> matchedWords = new();
+            CreateAllWords(tempNode, prefix[0..^1], matchedWords);
+            return matchedWords;
+        }
+
+        private void CreateAllWords(TrieNode node, string formedWord, List<string> matchedWords)
+        {
+            if (node == null)
+                return;
+
+            formedWord += node.Value;
+            if (node.IsLeaf)
+            {
+                matchedWords.Add(formedWord);
+            }
+            
+            foreach(TrieNode child in node.Children.Values)
+            {
+                CreateAllWords(child, formedWord, matchedWords);
+            }
+        }
     }
 }
