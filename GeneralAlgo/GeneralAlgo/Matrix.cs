@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace GeneralAlgo
 {
@@ -75,6 +73,82 @@ namespace GeneralAlgo
                 col += directions[currentDirection].Item2;
                 position = new(row, col);
             }
+        }
+
+        public void Rotate()
+        {
+            int rows = _matrix.GetLength(0);
+            int cols = _matrix.GetLength(1);
+            if (rows != cols)
+                return;
+            Rotate(new(0, rows - 1, 0, cols - 1));
+        }
+
+        public int[,] GetMatrix()
+        {
+            return _matrix;
+        }
+
+        private void Rotate(Tuple<int, int, int, int> boundaries)
+        {
+            var (left, right, up, down) = boundaries;
+            int boundaryWidth = right - left + 1;
+            if (boundaryWidth == 1 || boundaryWidth == 0)
+                return;
+
+            List<int> row_lr = new();
+            for (int index = left; index <= right; index++)
+            {
+                row_lr.Add(_matrix[up, index]);
+            }
+
+            List<int> col_ud = new();
+            for (int index = up; index <= down; index++)
+            {
+                col_ud.Add(_matrix[index, right]);
+            }
+
+            List<int> row_rl = new();
+            for (int index = right; index >= left; index--)
+            {
+                row_rl.Add(_matrix[down, index]);
+            }
+
+            List<int> col_du = new();
+            for (int index = down; index >= up; index--)
+            {
+                col_du.Add(_matrix[index, left]);
+            }
+
+            // LR --> UD
+            int counter = 0;
+            for (int index = up; index <= down; index++)
+            {
+                _matrix[index, right] = row_lr[counter++];
+            }
+
+            // UD --> RL
+            counter = 0;
+            for (int index = right; index >= left; index--)
+            {
+                _matrix[down, index] = col_ud[counter++];
+            }
+
+            // RL --> DU
+            counter = 0;
+            for (int index = down; index >= up; index--)
+            {
+                _matrix[index, left] = row_rl[counter++];
+            }
+
+            // DU --> LR
+            counter = 0;
+            for (int index = left; index <= right; index++)
+            {
+                _matrix[up, index] = col_du[counter++];
+            }
+
+            Rotate(new(left + 1, right - 1, up + 1, down - 1));
         }
     }
 }
