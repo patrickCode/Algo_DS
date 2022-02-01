@@ -1,0 +1,27 @@
+﻿What is path?
+Path is a single straight line drawn in a tree (without any forks)
+
+       1
+   2       3
+        4     5
+
+Paths
+ 2->1->3->3
+ 1->3->4
+ 4->3->5
+Not paths
+ 2->1->4->5 (At 4/5 the path forks)
+
+MAIN CONCEPT
+    For any node if you consider both the Left and Right, then the parent of that node cannot be included in the path
+
+Recursive
+    At any node there are 2 options (with some sub-options)
+    1. The max path passes through the LST RST and the node
+        In this case any parent of the node is not involved. So path sum - LST_PATH + node.Value + RST_PATH
+    2. The path exists through the node and LST or RST plus involves parent of node (Partial path)
+        Max_Partial_Path = Max(node + RST_PATH, node + LST_PATH, node) - The last scenario occus if both RST and LST is lower than node (-ve values)
+        Return this value to the call stack and let the parent do the same checks
+    3. The max path is in the children (case 1)
+        Hence the max path needs to be tracked by a global since we are not returning the max path to the recurion, we are only returning the max possible path when the node is in the current path and the parent is also in the path
+ 
