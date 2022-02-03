@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Collections.Generic;
 
 namespace Graph
 {
+    // BFS but keep track of the levels
     internal static class ShortestPath
     {
         public static int GetShortestPath(List<KeyValuePair<char, char>> edges, char source, char destination)
