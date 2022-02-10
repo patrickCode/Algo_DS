@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Graph
+﻿namespace Graph
 {
     internal class Program
     {
@@ -11,7 +9,8 @@ namespace Graph
             //Path.Run();
             // UndirectedHasPath.Test();
             // ConnectedComponents.Test();
-            ShortestPath.Test();
+            // ShortestPath.Test();
+            Island.Test();
         }
     }
 }

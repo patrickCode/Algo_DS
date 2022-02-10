@@ -13,3 +13,5 @@
 
 Resources
 https://www.youtube.com/watch?v=tWVWeAqZ0WU
+
+7. Islands (0 - Water | 1 - Land) - Count the number of islands is similar to number of connected components. The only difference being here the graph is a 2D grid and not nodes
