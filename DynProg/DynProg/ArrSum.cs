@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DynProg
 {
@@ -37,17 +38,17 @@ namespace DynProg
             if (target == 0) return new List<int>();
             if (target < 0) return null;
 
-            Dictionary<int, List<int>> memoizedPaths = new();
+            Dictionary<int, int[]> memoizedPaths = new();
             foreach (int num in array)
             {
-                memoizedPaths.Add(num, new List<int> { num });
+                memoizedPaths.Add(num, new int[] { num });
             }
-            memoizedPaths.Add(0, new List<int>());
-            List<int> shortestPath = BestSum(target, array, memoizedPaths);
-            return shortestPath;
+            memoizedPaths.Add(0, new int[] { });
+            int[] shortestPath = BestSum(target, array, memoizedPaths);
+            return shortestPath.ToList();
         }
 
-        private static List<int> BestSum(int target, int[] array, Dictionary<int, List<int>> memoizedPath)
+        private static int[] BestSum(int target, int[] array, Dictionary<int, int[]> memoizedPath)
         {
             if (memoizedPath.ContainsKey(target))
                 return memoizedPath[target];
@@ -59,7 +60,7 @@ namespace DynProg
             foreach (int num in array)
             {
                 int remainderTarget = target - num;
-                List<int> remainderPath = BestSum(remainderTarget, array, memoizedPath);
+                List<int> remainderPath = BestSum(remainderTarget, array, memoizedPath)?.ToList();
                 if (remainderPath != null)
                 {
                     remainderPath.Add(num);
@@ -69,8 +70,8 @@ namespace DynProg
                     }
                 }
             }
-            memoizedPath.Add(target, shortestPath);
-            return shortestPath;
+            memoizedPath.Add(target, shortestPath.ToArray());
+            return shortestPath.ToArray();
         }
 
         public static int[] CanSum(int target, int[] array)
@@ -138,8 +139,8 @@ namespace DynProg
 
         public static void Test()
         {
-            int[] array = new int[] { 1, 4, 5 };
-            int target = 8;
+            int[] array = new int[] { 1, 3, 5, 25 };
+            int target = 100;
             // int[] sumPath = CanSum(target, array);
             //int[] sumPath = BestSum_Rec(target, array)?.ToArray();
             int[] sumPath = BestSum(target, array)?.ToArray();
